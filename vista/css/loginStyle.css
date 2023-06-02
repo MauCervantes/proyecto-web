@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+ :root{
+    --blue:#0097B2;
+    --black:#444;
+    --white:#fff;
+    --light-color:#777;
+    --light-bg:#eee;
+    --border:.2rem solid rgba(0,0,0,.1);
+    --border-b: .2rem solid var(--blue);
+    --box-shadow-c: .5rem .5rem 0 rgba(18, 105, 155, 0.2);
+    --box-shadow:0 .5rem 1.5rem rgba(0, 0, 0, .1);
+    --box-shadow-original: .5rem .5rem 0 rgba(22, 160, 133, .2);
+    --text-shadow: .4rem .4rem 0 rgba(0, 0, 0, .2);
+ }
+
+
+  *{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; 
+    border:none;
+    text-decoration: none;
+    text-transform: none;
+ }
+
+ body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: var(--blue);
+}
+
+ html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+}
+
+
+
+/* header section*/
+.header{
+    padding: 2rem;
+    border-bottom: var(--border);
+    box-shadow: var(--box-shadow);
+    background: var(--white);
+}
+
+.header .logo{
+    font-size: 2rem;
+    color:var(--black);
+}
+
+.header .nav a{
+    margin:0 1rem;
+    font-size: 1.7rem;
+    color:var(--black);
+}
+
+.header .nav a:hover{
+    color:var(--blue);
+}
+
+#menu-btn{
+    font-size: 2.5rem;
+    color: var(--black);
+    cursor: pointer;
+    display: none;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 10rem;
+}
+
+.form-login{
+    position: relative;
+    max-width: 4500px;
+    width: 100%;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-c);
+    padding: 30px;
+    top: 5%;
+}
+
+.form-login img{
+    height: 20rem;
+    width: 100%;
+}
+
+.form-login .heading{
+    font-size: 27px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-login .input-field{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.input-field input{
+    position: absolute;
+    height: 100%;
+    width: 100%; 
+    padding: 0 35px;
+    font-size: 16px;
+    border-bottom: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    transition: all0.2s ease;
+}
+
+.input-field input:is(:focus, :valid) ~ i{
+    color: var(--blue);
+}
+
+.input-field i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 23px;
+}
+
+.input-field i.icon{
+    left: 0;
+}
+
+.input-field i.showHidePw{
+    cursor: pointer;
+    right: 0;
+}
+
+.form-login .text{
+    color: #333;
+    font-size: 14px;
+}
+
+
+.form-login a.text{
+    color: var(--blue);
+    text-decoration: none;
+}
+
+.form-login a:hover{
+    text-decoration: underline;
+}
+
+.form-login .button{
+    margin-top: 35px; 
+}
+
+.form-login .button input{
+    border: none;
+    color: var(--white);
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    background: var(--blue);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button input:hover{
+    background-color: rgb(1, 121, 143);
+}
+
+.form-login .login-signup{
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+
+/* media queries */
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+@media (max-width:768px){
+    #menu-btn{
+        display: inline-block;
+        transition: .2s linear;
+    }
+
+    #menu-btn.fa-times{
+        transform: rotate(180deg);
+    }
+
+    .header .nav{
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        border-top: var(--border);
+        border-bottom: var(--border);
+        padding: 1rem 0;
+        text-align: center;
+        flex-flow: column;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: .2s linear;
+    }
+
+    .header .nav.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .nav a{
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width:450px){
+    html{
+        font-size: 50%;
+    }
+}
